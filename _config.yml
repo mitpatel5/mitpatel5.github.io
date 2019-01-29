@@ -1,11 +1,11 @@
 # Site settings
 author: Mit Patel
-title: 
+title: Data Science
 header-img: img/home-bg.png
 email: mit.jpatel@yahoo.com
 copyright_name: Mit Patel
 description: > # this means to ignore newlines until "baseurl:"
-  
+  A blog for completing the requirement for the Data Science Program  
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  mitpatel5
