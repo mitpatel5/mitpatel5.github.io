@@ -29,20 +29,61 @@ For the first problem, I made a function that takes the dataframe and input argu
 After the function was executed I got the feature “Months since last delinquent” had missing values of more the 53% so I decided to remove that feature.
 
 The next thing that I noticed that there were 514 missing values in feature “Years of Credit History” so I pulled all the records that had null values in that feature and found out that last 514 records where just null records so I dropped them. 
+![Null Tabel](https://raw.githubusercontent.com/mitpatel5/dsc-3-final-project-online-ds-pt-112618/master/Images/Null%20vales.JPG)
 
 The Feature “Credit Score” and “Annual Income” had around 20k missing values I used the mean method to fill the null values.
 
 The last one was a categorical feature “Years in current job” to fill that I used the mode method.
+![Years At current job](https://raw.githubusercontent.com/mitpatel5/dsc-3-final-project-online-ds-pt-112618/master/Images/Years%20in%20current%20job.png)
 
 In the third phase i.e. Explore Data (E) we basically get to know the data, we can plot a histogram to summarize the data attributes, plot a pair wire histogram to plot attributes against each other and highlight relationships and outliners.
+![pair plot](https://raw.githubusercontent.com/mitpatel5/dsc-3-final-project-online-ds-pt-112618/master/Images/paiplot.png)
 
 Now to encode the categorical data will help the model to understand the data with categorical values. So, here I have used pandas get_dummies function to encode my categorical data. Another important step was to remove the collinear features from the dataset with respect to the output feature.
 
 Then we split the training set and test sets for both the input feature and the output feature with a test size of 0.2. 
 
+`# Separate out the features and targets
+features = credit.drop(columns='Loan Status')
+targets = pd.DataFrame(credit['Loan Status'])
+
+#Split into 80% training and 20% testing set
+X_train, X_test, y_train, y_test = train_test_split(features, targets, test_size = 0.2, random_state = 42)
+
+print(X_train.shape)
+print(X_test.shape)
+print(y_train.shape)
+print(y_test.shape) `
+
 As a part of feature scaling, I use Standard scaler to get more uniform distrubution for input features and apply label encoder on output features.
+`from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test) `
+
+`# Encoding the Dependent Variable
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+labelencoder_y_train = LabelEncoder()
+y_train = labelencoder_y_train.fit_transform(y_train)
+labelencoder_y_test = LabelEncoder()
+y_test = labelencoder_y_test.fit_transform(y_test)
+`
 
 In the fourth phase i.e. Modeling we would apply the training sets to 5 different classification algorithem and test their accuracies. To make it easier we will create a function that takes the input arguments as training sets and model and return mean of the accuracies of the model.
+` # Function to calculate mean absolute error
+def cross_val(X_train, y_train, model):
+    # Applying k-Fold Cross Validation
+    from sklearn.model_selection import cross_val_score
+    accuracies = cross_val_score(estimator = model, X = X_train, y = y_train, cv = 5)
+    return accuracies.mean()`
+		
+Using the above function as:
+
+`from sklearn.linear_model import LogisticRegression
+logr = LogisticRegression()
+logr_cross = fit_and_evaluate(logr) `
+
 
 Accuracies for each model can be seen in the graph below 
+![Final Plot](https://raw.githubusercontent.com/mitpatel5/dsc-3-final-project-online-ds-pt-112618/master/Images/plot.png)
 
