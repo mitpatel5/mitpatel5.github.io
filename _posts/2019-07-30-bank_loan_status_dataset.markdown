@@ -19,8 +19,28 @@ In the first phase i.e. Obtaining the Data (O) I used the panda library to impor
 
 In the second phase i.e. Scrubbing / Cleaning (S) The data ask dataset was clean in terms of data presentation there were some issues. First of all, I remove 2 features as they were just for identification purpose and that won't help in the in predicting the outcomes. And rest of the issues are listed below:
 
-There where various features with null values.
-Dealing with categorical values.
+1. There where various features with null values.
+2. Dealing with categorical values.
 
+For the first problem, I made a function that takes the dataframe and input argument and iterates through each feature and prints a table with each feature and total missing values and % of total values. This table helped me to identify if I want to remove that feature or to fill the NaN with a value.
 
+After the function was executed I got the feature “Months since last delinquent” had missing values of more the 53% so I decided to remove that feature.
+
+The next thing that I noticed that there were 514 missing values in feature “Years of Credit History” so I pulled all the records that had null values in that feature and found out that last 514 records where just null records so I dropped them. 
+
+The Feature “Credit Score” and “Annual Income” had around 20k missing values I used the mean method to fill the null values.
+
+The last one was a categorical feature “Years in current job” to fill that I used the mode method.
+
+In the third phase i.e. Explore Data (E) we basically get to know the data, we can plot a histogram to summarize the data attributes, plot a pair wire histogram to plot attributes against each other and highlight relationships and outliners.
+
+Now to encode the categorical data will help the model to understand the data with categorical values. So, here I have used pandas get_dummies function to encode my categorical data. Another important step was to remove the collinear features from the dataset with respect to the output feature.
+
+Then we split the training set and test sets for both the input feature and the output feature with a test size of 0.2. 
+
+As a part of feature scaling, I use Standard scaler to get more uniform distrubution for input features and apply label encoder on output features.
+
+In the fourth phase i.e. Modeling we would apply the training sets to 5 different classification algorithem and test their accuracies. To make it easier we will create a function that takes the input arguments as training sets and model and return mean of the accuracies of the model.
+
+Accuracies for each model can be seen in the graph below 
 
