@@ -22,6 +22,8 @@ In the second phase i.e. Scrubbing / Cleaning (S) The data ask dataset was clean
 1. There where various features with null values.
 2. Dealing with categorical values.
 
+![Nul Value Table](https://raw.githubusercontent.com/mitpatel5/dsc-3-final-project-online-ds-pt-112618/58ad296b64e88d70c16d475edeb923e474ed7e68/Images/table.JPG)
+
 For the first problem, I made a function that takes the dataframe and input argument and iterates through each feature and prints a table with each feature and total missing values and % of total values. This table helped me to identify if I want to remove that feature or to fill the NaN with a value.
 
 After the function was executed I got the feature “Months since last delinquent” had missing values of more the 53% so I decided to remove that feature.
