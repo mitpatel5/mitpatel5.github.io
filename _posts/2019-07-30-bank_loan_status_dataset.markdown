@@ -87,3 +87,8 @@ logr_cross = fit_and_evaluate(logr) `
 Accuracies for each model can be seen in the graph below 
 ![Final Plot](https://raw.githubusercontent.com/mitpatel5/dsc-3-final-project-online-ds-pt-112618/master/Images/plot.png)
 
+1. Logistic Regression Performance on the test set: Cross Validation Score = 0.8197 (82%)
+2. KNN Performance on the test set: Cross Validation Score = 0.7903 (79%)
+3. Naive Bayes Performance on the test set: Cross Validation Score = 0.4193 (42%)
+4. Random Forest Performance on the test set: Cross Validation Score = 0.8001 (80%)
+5. Gradiente Boosting Classification Performance on the test set: Cross Validation Score = 0.8198 (82%)
