@@ -13,7 +13,7 @@ The biggest challenge for this project was to select the dataset. I browsed thro
 After having a brief discussion with my instructor my dataset was provided, the next thing I was told to find the feature I would like to predict from the dataset which was the Status of the loan.
 
 The next steps which I took were using the OSEMN framework and implement my project accordingly.
-![](https://github.com/mitpatel5/dsc-3-final-project-online-ds-pt-112618/blob/master/Images/Head.JPG)
+<![](dsc-3-final-project-online-ds-pt-112618/blob/master/Images/Head.JPG)
 
 In the first phase i.e. Obtaining the Data (O) I used the panda library to import the dataset into dataframe. After running bus basic commands (head, info, describe) I noted a few issues about the data that needed to be fixed in the next phase.
 
